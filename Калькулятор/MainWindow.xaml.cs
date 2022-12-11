@@ -44,8 +44,16 @@ namespace Калькулятор
             }
             else if(str=="=")
             {
-                string value = new DataTable().Compute(textLabel.Text, null).ToString();
-                textLabel.Text = value;
+                try
+                {
+                    string value = new DataTable().Compute(textLabel.Text, null).ToString();
+                    textLabel.Text = value;
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Не правильное составление решения", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+
+                }
             }
             else
             {
